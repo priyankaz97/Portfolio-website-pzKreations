@@ -12,6 +12,8 @@ export class AppComponent {
 
   toggleMenuIcon() {
       $('#toggle').toggleClass("on");
-      $('.toggle-menu-button').toggleClass("menu-open");   
+      $('.toggle-menu-button').toggleClass("menu-open");
+      $('.menu-backdrop').fadeToggle();
+
   }
 }

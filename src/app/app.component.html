@@ -7,30 +7,35 @@
   <div class="nav-links nav-links-desktop">
     <button mat-button class="active">
       <span>home</span>
-    </button>
+      <div class="active-line open-tab"></div>
+    </button>    
     <button mat-button>
       <span>about</span>
+      <div class="open-tab"></div>
     </button>
     <button mat-button>
       <span>portfolio</span>
+      <div class="open-tab"></div>
     </button>
     <button mat-button>
       <span>blog</span>
+      <div class="open-tab"></div>
     </button>
     <button mat-button>
       <span>contact</span>
+      <div class="open-tab"></div>
     </button>
   </div>
 </mat-toolbar>
 
 <!-- mobile view -->
 <div class=" nav-links nav-links-mobile">
-  <mat-accordion class="nav-links">
+  <mat-accordion>
     <mat-expansion-panel class="smokey-background no-shadow" hideToggle (opened)="panelOpenState = true"
       (closed)="panelOpenState = false">
-      <mat-expansion-panel-header (click)="toggleMenuIcon()">
+      <mat-expansion-panel-header class="nav-link-header" (click)="toggleMenuIcon()">
         <mat-panel-title>
-          <button mat-icon-button class="icon toggle-menu-button" aria-label="icon-button with menu icon">
+          <button [disableRipple]="true" mat-icon-button class="icon toggle-menu-button" aria-label="icon-button with menu icon">
             <div id="toggle">
               <div class="one"></div>
               <div class="two"></div>
@@ -61,7 +66,7 @@
 </div>
 
 <!-- Navbar ends -->
-
+<div class="menu-backdrop"></div>
 <mat-card class="text-center intro-card">
   <div class="intro-content center">
     <p>
