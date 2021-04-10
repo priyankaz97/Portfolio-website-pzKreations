@@ -17,7 +17,7 @@
   color: #b6624e !important;
 }
 .center {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -63,7 +63,7 @@
 
 .toggle-menu-button {
   margin-top: 15px;
-  margin-left: 70px;
+  margin-left: 60px;
 }
 
 .menu-open {
@@ -101,6 +101,19 @@
   transform: rotate(-45deg) translate(3px, -5px);
 }
 
+.navbar, .nav-links-mobile {
+  animation: reveal 0.7s;
+}
+
+@keyframes reveal {
+  0% {
+    transform: translate(0, -120%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 @media (min-width: 320px) {
   /* smartphones, iPhone, portrait 480x320 phones */
   .nav-links-desktop {
@@ -110,7 +123,7 @@
     display: block;
   }
 }
-@media (min-width: 481px) { 
+@media (min-width: 481px) {
   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
   .nav-links-desktop {
     display: block;
