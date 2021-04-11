@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
+import { IntroductionComponent } from './introduction/introduction.component';
 
 @Component({
   selector: 'app-root',
