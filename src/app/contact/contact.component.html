@@ -1,0 +1,35 @@
+<div class="contact-wrapper">
+    <mat-card class="contact-card">
+        <h1>Get in touch</h1>
+        <mat-card class="no-shadow">
+
+            <form class="contact-form">
+                <mat-form-field class="full-width">
+                    <mat-label>Name</mat-label>
+                    <input id="name" matInput placeholder="Ex. John">
+                </mat-form-field>
+                <br><br>
+                <mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input id="email" type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                        placeholder="Ex. john@example.com">
+                    <mat-hint></mat-hint>
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br><br>
+                <mat-form-field class="full-width">
+                    <mat-label>Leave a comment</mat-label>
+                    <textarea id="message" maxlength="4" matInput placeholder="Your message"></textarea>
+                </mat-form-field>
+                <br><br>
+                <button class="sendMessage" (click)="sendMessage()" mat-raised-button>Send</button>
+            </form>
+
+        </mat-card>
+    </mat-card>
+</div>

@@ -1,39 +1,39 @@
 <!-- Navbar starts -->
-<mat-toolbar class="navbar">
-  <span class="logo">PZ Kreations</span>
+<mat-toolbar class="navbar">  
+    <a routerLink="/home" routerLinkActive="active" class="logo"><span>pz kreations</span></a>
   <span class="spacer"></span>
 
   <!-- desktop view -->
   <div class="nav-links nav-links-desktop">
-    <button mat-button class="active">
+    <button (click)="activeTab('home-tab')" routerLink="/home" routerLinkActive="active" mat-button class="active home-tab menuTabs">
       <span>home</span>
-      <div class="active-line open-tab"></div>
+      <div class="active-line open-tab home-tab-line"></div>
     </button>    
-    <button mat-button>
+    <button (click)="activeTab('about-tab')" routerLink="/home" routerLinkActive="active" mat-button class="about-tab menuTabs">
       <span>about</span>
-      <div class="open-tab"></div>
+      <div class="open-tab about-tab-line"></div>
     </button>
-    <button mat-button>
+    <button (click)="activeTab('portfolio-tab')" routerLink="/portfolio" routerLinkActive="active" mat-button class="portfolio-tab menuTabs">
       <span>portfolio</span>
-      <div class="open-tab"></div>
+      <div class="open-tab portfolio-tab-line"></div>
     </button>
-    <button mat-button>
+    <button (click)="activeTab('blog-tab')" routerLink="/home" routerLinkActive="active" mat-button class="blog-tab menuTabs">
       <span>blog</span>
-      <div class="open-tab"></div>
+      <div class="open-tab blog-tab-line"></div>
     </button>
-    <button mat-button>
-      <span>contact</span>
-      <div class="open-tab"></div>
+    <button (click)="activeTab('contact-tab')" routerLink="/contact" routerLinkActive="active" mat-button class="contact-tab menuTabs">
+      <span>contact</span>      
+      <div class="open-tab contact-tab-line"></div>
     </button>
   </div>
 </mat-toolbar>
 
 <!-- mobile view -->
 <div class=" nav-links nav-links-mobile">
-  <mat-accordion>
+  <mat-accordion #accordion="matAccordion">
     <mat-expansion-panel class="smokey-background no-shadow" hideToggle (opened)="panelOpenState = true"
       (closed)="panelOpenState = false">
-      <mat-expansion-panel-header class="nav-link-header" (click)="toggleMenuIcon()">
+      <mat-expansion-panel-header id="nav-menu-accordion" class="nav-link-header" (click)="toggleMenuIcon()">
         <mat-panel-title>
           <button [disableRipple]="true" mat-icon-button class="icon toggle-menu-button" aria-label="icon-button with menu icon">
             <div id="toggle">
@@ -45,19 +45,19 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div class="nav-links-mobile-content">
-        <button mat-button class="active">
+        <button (click)="collapseMenu('home-tab')" routerLink="/home" routerLinkActive="active" mat-button class="active home-tab menuTabs">
           <span>home</span>
         </button>
-        <button mat-button>
+        <button (click)="collapseMenu('about-tab')" routerLink="/home" routerLinkActive="active" mat-button class="about-tab menuTabs">
           <span>about</span>
         </button>
-        <button mat-button>
+        <button (click)="collapseMenu('portfolio-tab')" routerLink="/portfolio" routerLinkActive="active" mat-button class="portfolio-tab menuTabs">
           <span>portfolio</span>
         </button>
-        <button mat-button>
+        <button (click)="collapseMenu('blog-tab')" routerLink="/home" routerLinkActive="active" mat-button class="blog-tab menuTabs">
           <span>blog</span>
         </button>
-        <button mat-button>
+        <button (click)="collapseMenu('contact-tab')" routerLink="/contact" routerLinkActive="active" mat-button class="contact-tab menuTabs">
           <span>contact</span>
         </button>
       </div>
@@ -67,9 +67,10 @@
 
 <!-- Navbar ends -->
 <div class="menu-backdrop"></div>
-<mat-card style="width: 100%; height: 100%; padding: 0;">
+<!-- <mat-card style="width: 100%; height: 100%; padding: 0;"> -->
   <!-- class="text-center intro-card" -->
   <!-- <div class="intro-content center"> -->
-    <app-introduction></app-introduction>
+    <!-- <app-introduction></app-introduction> -->
+    <router-outlet></router-outlet>
   <!-- </div> -->
-</mat-card>
+<!-- </mat-card> -->

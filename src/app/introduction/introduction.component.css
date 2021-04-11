@@ -17,13 +17,13 @@
 }
 
 .my-type-tab > button {
-    width: 100%;
-    height: 100%;
-    padding: 16px
+  width: 100%;
+  height: 100%;
+  padding: 16px;
 }
 
 .type-developer {
-  background: #66d6d8;  
+  background: #66d6d8;
 }
 
 .type-designer {
@@ -32,20 +32,28 @@
 
 .close-left {
   background-color: #66d6d8;
-  animation: closeLeft 1s;
+  animation: closeLeft linear 1s;
   left: 0;
 }
 
 .close-right {
   background-color: #27c6c9;
   right: 0;
-  animation: closeRight 1s;
+  animation: closeRight linear 1s;
 }
 
 @keyframes closeLeft {
   0% {
     transform: translate(-100%, 0);
   }
+  60% {
+    transform: translate(0, 0);
+  }
+
+  80% {
+    transform: translate(-10%, 0);
+  }
+
   100% {
     transform: translate(0, 0);
   }
@@ -55,9 +63,25 @@
   0% {
     transform: translate(100%, 0);
   }
+
+  60% {
+    transform: translate(0, 0);
+  }
+
+  80% {
+    transform: translate(10%, 0);
+  }
+
   100% {
     transform: translate(0, 0);
   }
+}
+
+.parts-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 
 @media (min-width: 320px) {
@@ -81,19 +105,60 @@
 }
 
 @media (min-width: 320px) and (max-width: 481px) {
-    /* smartphones, iPhone, portrait 480x320 phones */
-    .my-type-tab > button {
-      width: 100%;
-      font-size: 12px;
-      padding: 0;
-    }
-    .my-type-tab {
-      padding: 0;
-    }
+  /* smartphones, iPhone, portrait 480x320 phones */
+  .my-type-tab > button {
+    width: 100%;
+    font-size: 12px;
+    padding: 0;
+  }
+  .my-type-tab {
+    padding: 0;
   }
 
-@media (min-width: 320px) {
-  /* smartphones, iPhone, portrait 480x320 phones */
+  .parts {
+    width: 100%;
+    height: 50%;
+    display: block;
+    position: relative;
+  }
+
+  .close-right {
+    animation: fromBottom linear 0.7s;
+  }
+  .close-left {
+    animation: fromTop linear 0.7s;
+  }
+
+  @keyframes fromBottom {
+    0% {
+      transform: translate(0, 100%);
+    }
+    60% {
+      transform: translate(0, 0);
+    }
+
+    80% {
+      transform: translate(0, 10%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes fromTop {
+    0% {
+      transform: translate(0, -100%);
+    }
+    60% {
+      transform: translate(0, 0);
+    }
+
+    80% {
+      transform: translate(0, -10%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
 }
 
 @media (min-width: 481px) {
